@@ -1,0 +1,26 @@
+name: Protect Main Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  block-direct-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if push is from PR merge
+        run: |
+          if [ "${{ github.event.head_commit.message }}" != *"Merge pull request"* ] && \
+             [ "${{ github.event.head_commit.message }}" != *"Merge branch"* ] && \
+             [ -z "${{ github.event.pull_request }}" ]; then
+            echo "::error::Direct pushes to main are not allowed. Please use a pull request."
+            echo ""
+            echo "To fix this:"
+            echo "1. Create a new branch: git checkout -b my-feature"
+            echo "2. Push your branch: git push origin my-feature"
+            echo "3. Open a pull request on GitHub"
+            exit 1
+          fi
+          echo "Push appears to be from a PR merge. Allowed."
+

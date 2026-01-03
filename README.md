@@ -1,10 +1,13 @@
-# 🚀 Dev Setup
+# 🚀 initbox
 
 A CLI tool to install apps and tools based on YAML formulas downloaded from the web.
 
-![Node.js](https://img.shields.io/badge/Node.js-18+-green)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+[![npm version](https://img.shields.io/npm/v/initbox.svg)](https://www.npmjs.com/package/initbox)
+[![npm downloads](https://img.shields.io/npm/dm/initbox.svg)](https://www.npmjs.com/package/initbox)
+[![Release](https://github.com/jameymcelveen/initbox/actions/workflows/release.yml/badge.svg)](https://github.com/jameymcelveen/initbox/actions/workflows/release.yml)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green)](https://nodejs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue)](https://www.typescriptlang.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
 
 ## Features
 
