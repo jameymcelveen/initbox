@@ -44,9 +44,9 @@ export interface WizardOptions {
  */
 export async function runInteractiveWizard(options: WizardOptions = {}): Promise<void> {
   console.log('');
-  console.log(chalk.bold.magenta('╔══════════════════════════════════════════════════════════════╗'));
-  console.log(chalk.bold.magenta('║') + chalk.bold.white('         🚀 Dev Setup - Interactive Installer              ') + chalk.bold.magenta('║'));
-  console.log(chalk.bold.magenta('╚══════════════════════════════════════════════════════════════╝'));
+  console.log(chalk.bold.magenta('╔════════════════════════════════════════════════════════════╗'));
+  console.log(chalk.bold.magenta('║') + chalk.bold.white('        🚀 InitBox - Interactive Installer                 ') + chalk.bold.magenta('║'));
+  console.log(chalk.bold.magenta('╚════════════════════════════════════════════════════════════╝'));
   console.log('');
 
   // Get formula URL
