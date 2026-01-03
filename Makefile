@@ -1,7 +1,7 @@
 # initbox Makefile
 # Run 'make help' for available commands
 
-.PHONY: help install dev build start typecheck clean link unlink test inspect validate
+.PHONY: help install setup-hooks dev build start typecheck clean link unlink test inspect validate
 
 # Default target
 .DEFAULT_GOAL := help
@@ -28,7 +28,33 @@ help: ## Show this help message
 # Installation & Setup
 # =============================================================================
 
-install: ## Install npm dependencies
+# Git hook script to prevent commits/pushes to main
+define GIT_HOOK_SCRIPT
+#!/bin/sh
+branch="$$(git symbolic-ref HEAD 2>/dev/null)"
+if [ "$$branch" = "refs/heads/main" ]; then
+    echo "\\033[31mError: Direct commits to main branch are not allowed.\\033[0m"
+    echo "Please create a feature branch and submit a pull request."
+    echo ""
+    echo "  git checkout -b my-feature"
+    echo "  git commit -m 'your message'"
+    echo "  git push origin my-feature"
+    exit 1
+fi
+endef
+export GIT_HOOK_SCRIPT
+
+setup-hooks: ## Install git hooks to protect main branch
+	@if [ ! -f .git/hooks/pre-commit ] || ! grep -q "Direct commits to main" .git/hooks/pre-commit 2>/dev/null; then \
+		echo "$(CYAN)Installing git pre-commit hook to protect main branch...$(RESET)"; \
+		echo "$$GIT_HOOK_SCRIPT" > .git/hooks/pre-commit; \
+		chmod +x .git/hooks/pre-commit; \
+		echo "$(GREEN)Git hook installed successfully.$(RESET)"; \
+	else \
+		echo "$(GREEN)Git hook already installed.$(RESET)"; \
+	fi
+
+install: setup-hooks ## Install git hooks and npm dependencies
 	npm install
 
 link: build ## Build and link globally for development
