@@ -1,0 +1,29 @@
+id: lazygit
+name: lazygit
+description: Simple terminal UI for git commands
+homepage: https://github.com/jesseduffield/lazygit
+tags:
+  - cli
+  - git
+dependencies:
+  - git
+versionCommand: lazygit --version
+versionParseRegex: "version=(\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install lazygit
+    type: brew
+    command: lazygit
+    platforms:
+      - darwin
+  - name: Install lazygit (Linux)
+    type: shell
+    command: |
+      LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+      curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+      tar xf lazygit.tar.gz lazygit
+      sudo install lazygit /usr/local/bin
+      rm lazygit lazygit.tar.gz
+    platforms:
+      - linux
+

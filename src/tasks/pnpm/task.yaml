@@ -1,0 +1,20 @@
+id: pnpm
+name: pnpm
+description: Fast, disk space efficient package manager
+homepage: https://pnpm.io
+tags:
+  - javascript
+  - package-manager
+dependencies:
+  - node-lts
+versionCommand: pnpm --version
+versionParseRegex: "(\\d+\\.\\d+\\.\\d+)"
+require-sudo: false
+steps:
+  - name: Install pnpm via corepack
+    type: shell
+    command: corepack enable && corepack prepare pnpm@latest --activate
+    platforms:
+      - darwin
+      - linux
+

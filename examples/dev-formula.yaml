@@ -1,0 +1,107 @@
+# Example Dev Setup Formula
+# This formula uses bundled tasks from the dev-setup package
+# Task definitions are built into the CLI at src/tasks/{id}/task.yaml
+
+name: Full Stack Developer Setup
+version: "1.0.0"
+description: Essential tools for full-stack development
+author: Dev Setup Team
+updated: "2026-01-02"
+
+# tasksUrl: builtin (default - uses bundled tasks)
+# To use custom remote tasks, set: tasksUrl: https://example.com/tasks
+
+categories:
+  - Core Tools
+  - JavaScript/Node
+  - Python
+  - Databases
+  - DevOps
+  - Productivity
+
+tasks:
+  # Core Tools
+  - id: git
+    category: Core Tools
+    version: "^2.40.0"
+
+  - id: gh
+    category: Core Tools
+    version: "^2.40.0"
+
+  - id: curl
+    category: Core Tools
+    version: "^8.0.0"
+
+  - id: jq
+    category: Core Tools
+    version: "^1.7.0"
+
+  # JavaScript/Node
+  - id: nvm
+    category: JavaScript/Node
+    version: "^0.40.0"
+
+  - id: node-lts
+    category: JavaScript/Node
+    version: "^20.0.0"
+
+  - id: pnpm
+    category: JavaScript/Node
+    version: "^9.0.0"
+
+  - id: bun
+    category: JavaScript/Node
+    version: "^1.1.0"
+
+  # Python
+  - id: python
+    category: Python
+    version: "^3.11.0"
+
+  - id: poetry
+    category: Python
+    version: "^1.8.0"
+
+  # Databases
+  - id: postgresql
+    category: Databases
+    version: "^16.0"
+
+  - id: redis
+    category: Databases
+    version: "^7.2.0"
+
+  # DevOps
+  - id: docker
+    category: DevOps
+    version: "^27.0.0"
+
+  - id: kubectl
+    category: DevOps
+    version: "^1.30.0"
+
+  - id: terraform
+    category: DevOps
+    version: "^1.9.0"
+
+  # Productivity
+  - id: fzf
+    category: Productivity
+    version: "^0.55.0"
+
+  - id: ripgrep
+    category: Productivity
+    version: "^14.0.0"
+
+  - id: bat
+    category: Productivity
+    version: "^0.24.0"
+
+  - id: eza
+    category: Productivity
+    version: "^0.18.0"
+
+  - id: lazygit
+    category: Productivity
+    version: "^0.44.0"

@@ -1,0 +1,23 @@
+id: python
+name: Python 3
+description: Python programming language
+homepage: https://www.python.org
+tags:
+  - python
+  - language
+dependencies: []
+versionCommand: python3 --version
+versionParseRegex: "Python (\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install Python 3
+    type: brew
+    command: python@3.12
+    platforms:
+      - darwin
+  - name: Install Python 3 (Linux)
+    type: apt
+    command: python3
+    platforms:
+      - linux
+

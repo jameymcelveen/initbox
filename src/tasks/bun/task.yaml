@@ -1,0 +1,20 @@
+id: bun
+name: Bun
+description: All-in-one JavaScript runtime & toolkit
+homepage: https://bun.sh
+tags:
+  - javascript
+  - runtime
+dependencies:
+  - curl
+versionCommand: bun --version
+versionParseRegex: "(\\d+\\.\\d+\\.\\d+)"
+require-sudo: false
+steps:
+  - name: Install Bun
+    type: shell
+    command: curl -fsSL https://bun.sh/install | bash
+    platforms:
+      - darwin
+      - linux
+

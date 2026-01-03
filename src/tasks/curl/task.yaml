@@ -1,0 +1,23 @@
+id: curl
+name: cURL
+description: Command line tool for transferring data with URLs
+homepage: https://curl.se
+tags:
+  - essential
+  - networking
+dependencies: []
+versionCommand: curl --version
+versionParseRegex: "curl (\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install curl (macOS - usually pre-installed)
+    type: brew
+    command: curl
+    platforms:
+      - darwin
+  - name: Install curl (Linux)
+    type: apt
+    command: curl
+    platforms:
+      - linux
+

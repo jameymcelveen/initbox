@@ -1,0 +1,23 @@
+id: fzf
+name: fzf
+description: Command-line fuzzy finder
+homepage: https://github.com/junegunn/fzf
+tags:
+  - cli
+  - productivity
+dependencies: []
+versionCommand: fzf --version
+versionParseRegex: "(\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install fzf
+    type: brew
+    command: fzf
+    platforms:
+      - darwin
+  - name: Install fzf (Linux)
+    type: apt
+    command: fzf
+    platforms:
+      - linux
+

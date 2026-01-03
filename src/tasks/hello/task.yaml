@@ -1,0 +1,15 @@
+id: hello
+name: Hello World
+description: A simple test task that prints hello
+homepage: ""
+tags:
+  - test
+  - example
+dependencies: []
+versionCommand: ""
+require-sudo: false
+steps:
+  - name: Say Hello
+    type: shell
+    command: echo "Hello from initbox!"
+

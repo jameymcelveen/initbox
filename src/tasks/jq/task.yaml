@@ -1,0 +1,23 @@
+id: jq
+name: jq
+description: Lightweight command-line JSON processor
+homepage: https://stedolan.github.io/jq/
+tags:
+  - essential
+  - json
+dependencies: []
+versionCommand: jq --version
+versionParseRegex: "jq-(\\d+\\.\\d+(?:\\.\\d+)?)"
+require-sudo: true
+steps:
+  - name: Install jq
+    type: brew
+    command: jq
+    platforms:
+      - darwin
+  - name: Install jq (Linux)
+    type: apt
+    command: jq
+    platforms:
+      - linux
+

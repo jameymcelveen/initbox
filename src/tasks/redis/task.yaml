@@ -1,0 +1,28 @@
+id: redis
+name: Redis
+description: In-memory data structure store
+homepage: https://redis.io
+tags:
+  - database
+  - cache
+dependencies: []
+versionCommand: redis-server --version
+versionParseRegex: "v=(\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install Redis
+    type: brew
+    command: redis
+    platforms:
+      - darwin
+  - name: Start Redis service
+    type: shell
+    command: brew services start redis
+    platforms:
+      - darwin
+  - name: Install Redis (Linux)
+    type: apt
+    command: redis-server
+    platforms:
+      - linux
+

@@ -1,0 +1,27 @@
+id: gh
+name: GitHub CLI
+description: GitHub's official command line tool
+homepage: https://cli.github.com
+tags:
+  - essential
+  - github
+dependencies:
+  - git
+versionCommand: gh --version
+versionParseRegex: "gh version (\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install GitHub CLI
+    type: brew
+    command: gh
+    platforms:
+      - darwin
+  - name: Install GitHub CLI (Linux)
+    type: shell
+    command: |
+      curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+      echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+      sudo apt update && sudo apt install gh -y
+    platforms:
+      - linux
+

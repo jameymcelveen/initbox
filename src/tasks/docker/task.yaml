@@ -1,0 +1,25 @@
+id: docker
+name: Docker Desktop
+description: Container platform for building and running applications
+homepage: https://www.docker.com
+tags:
+  - containers
+  - devops
+dependencies: []
+versionCommand: docker --version
+versionParseRegex: "Docker version (\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install Docker Desktop (macOS)
+    type: cask
+    command: docker
+    platforms:
+      - darwin
+  - name: Install Docker (Linux)
+    type: shell
+    command: |
+      curl -fsSL https://get.docker.com | sh
+      sudo usermod -aG docker $USER
+    platforms:
+      - linux
+

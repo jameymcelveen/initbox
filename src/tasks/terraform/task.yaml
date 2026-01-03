@@ -1,0 +1,26 @@
+id: terraform
+name: Terraform
+description: Infrastructure as Code tool
+homepage: https://www.terraform.io
+tags:
+  - infrastructure
+  - devops
+dependencies: []
+versionCommand: terraform --version
+versionParseRegex: "Terraform v(\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install Terraform
+    type: brew
+    command: terraform
+    platforms:
+      - darwin
+  - name: Install Terraform (Linux)
+    type: shell
+    command: |
+      wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+      echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+      sudo apt update && sudo apt install terraform -y
+    platforms:
+      - linux
+

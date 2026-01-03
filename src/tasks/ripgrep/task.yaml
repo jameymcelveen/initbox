@@ -1,0 +1,23 @@
+id: ripgrep
+name: ripgrep
+description: Recursively search directories for a regex pattern
+homepage: https://github.com/BurntSushi/ripgrep
+tags:
+  - cli
+  - search
+dependencies: []
+versionCommand: rg --version
+versionParseRegex: "ripgrep (\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install ripgrep
+    type: brew
+    command: ripgrep
+    platforms:
+      - darwin
+  - name: Install ripgrep (Linux)
+    type: apt
+    command: ripgrep
+    platforms:
+      - linux
+

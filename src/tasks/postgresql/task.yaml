@@ -1,0 +1,28 @@
+id: postgresql
+name: PostgreSQL
+description: Powerful open source relational database
+homepage: https://www.postgresql.org
+tags:
+  - database
+  - sql
+dependencies: []
+versionCommand: psql --version
+versionParseRegex: "psql \\(PostgreSQL\\) (\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install PostgreSQL
+    type: brew
+    command: postgresql@16
+    platforms:
+      - darwin
+  - name: Start PostgreSQL service
+    type: shell
+    command: brew services start postgresql@16
+    platforms:
+      - darwin
+  - name: Install PostgreSQL (Linux)
+    type: apt
+    command: postgresql
+    platforms:
+      - linux
+

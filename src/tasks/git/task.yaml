@@ -1,0 +1,23 @@
+id: git
+name: Git
+description: Distributed version control system
+homepage: https://git-scm.com
+tags:
+  - essential
+  - vcs
+dependencies: []
+versionCommand: git --version
+versionParseRegex: "git version (\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install Git
+    type: brew
+    command: git
+    platforms:
+      - darwin
+  - name: Install Git (Linux)
+    type: apt
+    command: git
+    platforms:
+      - linux
+

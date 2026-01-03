@@ -1,0 +1,21 @@
+id: nvm
+name: NVM
+description: Node Version Manager - manage multiple Node.js versions
+homepage: https://github.com/nvm-sh/nvm
+tags:
+  - javascript
+  - node
+  - version-manager
+dependencies:
+  - curl
+versionCommand: bash -c "source ~/.nvm/nvm.sh && nvm --version"
+versionParseRegex: "(\\d+\\.\\d+\\.\\d+)"
+require-sudo: false
+steps:
+  - name: Install NVM
+    type: shell
+    command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    platforms:
+      - darwin
+      - linux
+

@@ -1,0 +1,47 @@
+{
+  "name": "initbox",
+  "version": "0.1.0",
+  "description": "CLI tool to install apps and tools based on YAML formulas from the web",
+  "type": "module",
+  "main": "./dist/cli.js",
+  "bin": {
+    "initbox": "./dist/cli.js"
+  },
+  "scripts": {
+    "dev": "vite-node src/cli.ts",
+    "build": "vite build",
+    "start": "node dist/cli.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "cli",
+    "setup",
+    "installer",
+    "devtools",
+    "formula"
+  ],
+  "author": "Jamey McElveen",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "inquirer": "^9.2.23",
+    "js-yaml": "^4.1.0",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.24",
+    "typescript": "^5.4.2",
+    "vite": "^5.4.8",
+    "vite-node": "^2.1.1",
+    "vite-plugin-dts": "^4.2.1",
+    "vitest": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

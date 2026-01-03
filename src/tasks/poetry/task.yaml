@@ -1,0 +1,21 @@
+id: poetry
+name: Poetry
+description: Python packaging and dependency management
+homepage: https://python-poetry.org
+tags:
+  - python
+  - package-manager
+dependencies:
+  - python
+  - curl
+versionCommand: poetry --version
+versionParseRegex: "Poetry \\(version (\\d+\\.\\d+\\.\\d+)\\)"
+require-sudo: false
+steps:
+  - name: Install Poetry
+    type: shell
+    command: curl -sSL https://install.python-poetry.org | python3 -
+    platforms:
+      - darwin
+      - linux
+

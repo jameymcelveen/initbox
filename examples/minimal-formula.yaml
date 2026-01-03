@@ -1,0 +1,11 @@
+# Minimal Example Formula
+# Uses bundled tasks from the dev-setup package
+
+name: Minimal Example
+version: "1.0.0"
+description: A minimal example formula for testing
+
+tasks:
+  - id: hello
+    category: Testing
+    version: "latest"

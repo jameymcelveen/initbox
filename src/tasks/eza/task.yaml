@@ -1,0 +1,23 @@
+id: eza
+name: eza
+description: Modern replacement for ls
+homepage: https://github.com/eza-community/eza
+tags:
+  - cli
+  - file-viewer
+dependencies: []
+versionCommand: eza --version
+versionParseRegex: "v(\\d+\\.\\d+\\.\\d+)"
+require-sudo: false
+steps:
+  - name: Install eza
+    type: brew
+    command: eza
+    platforms:
+      - darwin
+  - name: Install eza (Linux)
+    type: shell
+    command: cargo install eza
+    platforms:
+      - linux
+

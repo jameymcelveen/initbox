@@ -1,0 +1,20 @@
+id: node-lts
+name: Node.js LTS
+description: JavaScript runtime (latest LTS version via NVM)
+homepage: https://nodejs.org
+tags:
+  - javascript
+  - runtime
+dependencies:
+  - nvm
+versionCommand: node --version
+versionParseRegex: "v?(\\d+\\.\\d+\\.\\d+)"
+require-sudo: false
+steps:
+  - name: Install Node.js LTS via NVM
+    type: shell
+    command: bash -c "source ~/.nvm/nvm.sh && nvm install --lts && nvm use --lts"
+    platforms:
+      - darwin
+      - linux
+

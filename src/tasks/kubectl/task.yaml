@@ -1,0 +1,26 @@
+id: kubectl
+name: kubectl
+description: Kubernetes command-line tool
+homepage: https://kubernetes.io/docs/reference/kubectl/
+tags:
+  - kubernetes
+  - devops
+dependencies: []
+versionCommand: kubectl version --client
+versionParseRegex: "Client Version: v(\\d+\\.\\d+\\.\\d+)"
+require-sudo: true
+steps:
+  - name: Install kubectl
+    type: brew
+    command: kubectl
+    platforms:
+      - darwin
+  - name: Install kubectl (Linux)
+    type: shell
+    command: |
+      curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+      sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+      rm kubectl
+    platforms:
+      - linux
+
