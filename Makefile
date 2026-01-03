@@ -1,7 +1,7 @@
 # initbox Makefile
 # Run 'make help' for available commands
 
-.PHONY: help install setup-hooks dev build start typecheck clean link unlink test inspect validate
+.PHONY: help install setup-hooks setup-alias dev build start typecheck clean link unlink test inspect validate pr ac
 
 # Default target
 .DEFAULT_GOAL := help
@@ -56,6 +56,21 @@ setup-hooks: ## Install git hooks to protect main branch
 
 install: setup-hooks ## Install git hooks and npm dependencies
 	npm install
+
+setup-alias: ## Setup git aliases 'git pr' and 'git ac'
+	@git config --global alias.pr '!make -C "$$(git rev-parse --show-toplevel)" pr'
+	@git config --global alias.ac '!make -C "$$(git rev-parse --show-toplevel)" ac'
+	@echo "$(GREEN)Git aliases configured successfully:$(RESET)"
+	@echo "  git pr  - Create a release PR"
+	@echo "  git ac  - Add all changes and commit with auto-generated message"
+
+ac: ## Add all changes and commit with auto-generated message
+	@chmod +x scripts/ac.sh
+	@./scripts/ac.sh
+
+pr: ## Create a release PR (bump minor version, update changelog, push)
+	@chmod +x scripts/pr.sh
+	@./scripts/pr.sh
 
 link: build ## Build and link globally for development
 	npm link
