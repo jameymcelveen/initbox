@@ -1,6 +1,6 @@
 {
   "name": "initbox",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CLI tool to install apps and tools based on YAML formulas from the web",
   "type": "module",
   "main": "./dist/cli.js",
